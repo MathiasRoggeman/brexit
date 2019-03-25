@@ -5,13 +5,15 @@ from datetime import datetime, timedelta
 from django import template
 from django.utils.timesince import timeuntil
 
-
-brexitDate  = datetime(2019, 3, 29, 11, 00, 00, 0000)
-   
+now = datetime.now()
+brexitDate  = datetime(2019, 3, 29, 12 , 00, 00, 0000)
+d = (brexitDate - now)
+Timeuntil = str(d).split(".")[0]
+#timeUntil = timeuntil(brexitDate)
 # Create your views here.
-def index(request ,arg=None):
+def index(request):
      
-    return HttpResponse(timeuntil(brexitDate))
+    return HttpResponse(Timeuntil)
 
 
 
